@@ -1,15 +1,14 @@
 import { Navigate, Route, Routes } from 'react-router'
-import ProtectedRoute from './components/auth/ProtectedRoute'
-import Dashboard from './pages/Dashboard'
+import WebServiceRedirect from './components/auth/WebServiceRedirect'
 import Home from './pages/Home'
-import Login from './pages/Login'
+import { webServiceAppUrl, webServiceLoginUrl } from './lib/webService'
 
 export default function App() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/app" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+      <Route path="/login" element={<WebServiceRedirect to={webServiceLoginUrl} />} />
+      <Route path="/app" element={<WebServiceRedirect to={webServiceAppUrl} />} />
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   )

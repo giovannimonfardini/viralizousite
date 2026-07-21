@@ -1,9 +1,7 @@
-import { useState } from 'react'
 import type { ReactNode } from 'react'
-import { useNavigate } from 'react-router'
 import { Button } from '@/components/ui/button'
-import { useAuth } from '@/auth/AuthContext'
 import { cn } from '@/lib/utils'
+import { webServiceGoogleLoginUrl } from '@/lib/webService'
 
 function GoogleIcon() {
   return (
@@ -27,36 +25,12 @@ export default function GoogleSignInButton({
   icon?: ReactNode
   onAction?: () => void
 }) {
-  const { user, configured, signInWithGoogle } = useAuth()
-  const [pending, setPending] = useState(false)
-  const navigate = useNavigate()
-
-  const handleClick = async () => {
-    onAction?.()
-    if (user) {
-      navigate('/app')
-      return
-    }
-    if (!configured) {
-      navigate('/login')
-      return
-    }
-
-    setPending(true)
-    try {
-      await signInWithGoogle()
-      navigate('/app')
-    } catch {
-      navigate('/login')
-    } finally {
-      setPending(false)
-    }
-  }
-
   return (
-    <Button type="button" onClick={handleClick} disabled={pending} className={cn('bg-violet-600 hover:bg-violet-700', className)}>
-      {!user && (icon ?? <GoogleIcon />)}
-      {pending ? 'Conectando…' : user ? 'Minha área' : label}
+    <Button className={cn('bg-violet-600 hover:bg-violet-700', className)} asChild>
+      <a href={webServiceGoogleLoginUrl} onClick={onAction}>
+        {icon ?? <GoogleIcon />}
+        {label}
+      </a>
     </Button>
   )
 }

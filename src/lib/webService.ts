@@ -1,4 +1,4 @@
-const defaultLoginUrl = 'https://viralizou-sigma.vercel.app/login'
+const defaultLoginUrl = 'https://app.viralizou.app'
 
 function normalizeUrl(value: string | undefined) {
   const candidate = value?.trim() || defaultLoginUrl
@@ -15,11 +15,6 @@ function normalizeUrl(value: string | undefined) {
 const loginUrl = normalizeUrl(import.meta.env.VITE_WEB_SERVICE_LOGIN_URL)
 
 export const webServiceLoginUrl = loginUrl.toString()
-
-export const webServiceGoogleLoginUrl = (() => {
-  const url = new URL(loginUrl)
-  url.searchParams.set('provider', 'google')
-  return url.toString()
-})()
+export const webServiceGoogleLoginUrl = webServiceLoginUrl
 
 export const webServiceAppUrl = new URL('/series', loginUrl).toString()

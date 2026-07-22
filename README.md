@@ -38,7 +38,7 @@ npm run preview  # pré-visualiza o build
 O login é executado pelo web service, que concentra a sessão do Supabase e as rotas protegidas. A landing não mantém uma autenticação separada.
 
 1. Copie `.env.example` para `.env.local` quando precisar sobrescrever a URL padrão.
-2. Configure `VITE_WEB_SERVICE_LOGIN_URL` com a rota `/login` do web service.
+2. Configure `VITE_WEB_SERVICE_LOGIN_URL` com o endereço do aplicativo.
 3. Reinicie `npm run dev` depois de alterar a variável.
 
 Rotas disponíveis:

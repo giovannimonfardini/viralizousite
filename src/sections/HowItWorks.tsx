@@ -1,6 +1,6 @@
 import Reveal from '@/components/Reveal'
 import { Badge } from '@/components/ui/badge'
-import { Play, PenLine, Rocket, Check, Music, TrendingUp } from 'lucide-react'
+import { Play, PenLine, Rocket, Check, Music } from 'lucide-react'
 
 function Browser({ children }: { children: React.ReactNode }) {
   return (
@@ -20,6 +20,7 @@ const steps = [
     tag: 'Passo 1', icon: Play, title: 'Crie uma Série',
     text: 'Escolha seu nicho e os formatos de vídeo. Nossa IA cuida de todo o resto.',
     checks: ['Nichos ilimitados suportados', 'Vários formatos de vídeo disponíveis'],
+    framed: true,
     visual: (
       <>
         {[{ n: 'Histórias de terror', s: 'Ativa', b: 'Pausar' }, { n: 'Mitologia grega', s: 'Ativa', b: 'Pausar' }, { n: 'Curiosidades históricas', s: 'Rascunho', b: 'Retomar' }].map((r, i) => (
@@ -37,6 +38,7 @@ const steps = [
     tag: 'Passo 2', icon: PenLine, title: 'Personalize',
     text: 'Escolha estilos de arte e adicione sua música favorita.',
     checks: ['Vários estilos de arte para escolher', 'Envie música própria ou cole um link de som do TikTok'],
+    framed: true,
     visual: (
       <>
         <p className="mb-2 text-[13px] font-bold">Estilo de arte</p>
@@ -59,18 +61,17 @@ const steps = [
     tag: 'Passo 3', icon: Rocket, title: 'Veja suas redes crescerem',
     text: 'Conecte suas contas e deixe a publicação com a gente.',
     checks: ['Publicação automática enquanto você dorme', 'Compatível com: Instagram, TikTok e YouTube'],
+    framed: false,
     visual: (
-      <>
-        <div className="mb-2 flex items-center justify-between rounded-xl border bg-white px-4 py-3 text-[13px]">
-          <span className="flex items-center gap-2 font-semibold"><TrendingUp className="size-4 text-violet-600" /> Crescimento do canal (30 dias)</span>
-          <Badge variant="secondary" className="bg-emerald-100 text-[10px] font-bold text-emerald-700 hover:bg-emerald-100">+412%</Badge>
-        </div>
-        <div className="flex h-28 items-end gap-2 rounded-xl border bg-white px-4 pb-0 pt-4 sm:h-40">
-          {[20, 32, 28, 45, 58, 74, 95].map((h, i) => (
-            <div key={i} className="flex-1 rounded-t-md bg-gradient-to-b from-fuchsia-400 to-violet-600" style={{ height: `${h}%` }} />
-          ))}
-        </div>
-      </>
+      <img
+        src="/assets/how-it-works-3.webp"
+        alt="TikTok, Instagram e YouTube crescendo juntos"
+        width="1280"
+        height="853"
+        loading="lazy"
+        decoding="async"
+        className="mx-auto h-auto w-full max-w-xl object-contain"
+      />
     ),
   },
 ]
@@ -88,7 +89,9 @@ export default function HowItWorks() {
           {steps.map((s, i) => (
             <Reveal key={i}>
               <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-20">
-                <div className={i % 2 === 1 ? 'lg:order-2' : ''}><Browser>{s.visual}</Browser></div>
+                <div className={i % 2 === 1 ? 'lg:order-2' : ''}>
+                  {s.framed ? <Browser>{s.visual}</Browser> : s.visual}
+                </div>
                 <div>
                   <Badge variant="secondary" className="mb-4 rounded-full bg-violet-100 px-3.5 py-1 text-xs font-bold text-violet-700 hover:bg-violet-100">{s.tag}</Badge>
                   <h3 className="font-display flex items-center gap-2.5 text-2xl font-bold tracking-tight sm:text-3xl">

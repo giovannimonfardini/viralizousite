@@ -7,33 +7,16 @@
     <title>Viralizou | Reels sem rosto com IA no piloto automático</title>
     <!-- Meta Pixel Code -->
     <script>
-      (function () {
-        var loaded = false;
-        var events = ['pointerdown', 'keydown', 'touchstart'];
-
-        function loadMetaPixel() {
-          if (loaded) return;
-          loaded = true;
-          events.forEach(function (eventName) {
-            window.removeEventListener(eventName, loadMetaPixel);
-          });
-
-        !function(f,b,e,v,n,t,s)
-        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-        n.queue=[];t=b.createElement(e);t.async=!0;
-        t.src=v;s=b.getElementsByTagName(e)[0];
-        s.parentNode.insertBefore(t,s)}(window, document,'script',
-        'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', '1390711829672342');
-        fbq('track', 'PageView');
-        }
-
-        events.forEach(function (eventName) {
-          window.addEventListener(eventName, loadMetaPixel, { once: true, passive: true });
-        });
-      })();
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '1390711829672342');
+      fbq('track', 'PageView');
     </script>
     <!-- End Meta Pixel Code -->
   </head>

@@ -34,7 +34,7 @@ export default function Hero() {
         </div>
 
         <h1 className="font-display mx-auto max-w-3xl text-balance text-4xl font-bold leading-[1.08] tracking-[-0.045em] text-zinc-950 sm:text-5xl lg:text-6xl">
-          Crie vídeos com potencial viral no automático — e transforme audiência em renda
+          Crie vídeos com potencial viral no automático e transforme audiência em renda
         </h1>
 
         <p className="mx-auto mt-6 max-w-2xl text-pretty text-base leading-relaxed text-zinc-600 sm:text-lg">

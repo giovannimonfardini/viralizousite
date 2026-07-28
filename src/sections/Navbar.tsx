@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Menu, X } from 'lucide-react'
 import GoogleSignInButton from '@/components/auth/GoogleSignInButton'
 import { Button } from '@/components/ui/button'
-import { webServiceLoginUrl } from '@/lib/webService'
+import { webServiceLoginUrl, withAttribution } from '@/lib/webService'
 
 const links = [
   { label: 'Como funciona', href: '#como-funciona' },
@@ -65,7 +65,7 @@ export default function Navbar() {
         <div className="hidden items-center gap-2.5 md:flex">
           <GoogleSignInButton className="h-10 rounded-xl border border-zinc-300 bg-white px-5 font-semibold text-zinc-950 shadow-sm hover:bg-zinc-50" />
           <Button className="h-10 rounded-xl bg-violet-600 px-5 font-semibold shadow-sm shadow-violet-600/20 hover:bg-violet-700" asChild>
-            <a href={webServiceLoginUrl}>Começar agora</a>
+            <a href={withAttribution(webServiceLoginUrl)}>Começar agora</a>
           </Button>
         </div>
 
@@ -91,7 +91,7 @@ export default function Navbar() {
             ))}
             <GoogleSignInButton className="mt-5 h-12 rounded-xl border border-zinc-300 bg-white text-base font-semibold text-zinc-950 shadow-sm hover:bg-zinc-50" onAction={() => setOpen(false)} />
             <Button className="mt-3 h-12 rounded-xl bg-violet-600 text-base font-semibold hover:bg-violet-700" asChild>
-              <a href={webServiceLoginUrl} onClick={() => setOpen(false)}>Começar agora</a>
+              <a href={withAttribution(webServiceLoginUrl)} onClick={() => setOpen(false)}>Começar agora</a>
             </Button>
           </nav>
         </div>

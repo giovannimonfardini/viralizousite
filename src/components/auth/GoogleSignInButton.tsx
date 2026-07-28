@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
-import { webServiceGoogleLoginUrl } from '@/lib/webService'
+import { webServiceGoogleLoginUrl, withAttribution } from '@/lib/webService'
 
 function GoogleIcon() {
   return (
@@ -27,7 +27,7 @@ export default function GoogleSignInButton({
 }) {
   return (
     <Button className={cn('bg-violet-600 hover:bg-violet-700', className)} asChild>
-      <a href={webServiceGoogleLoginUrl} onClick={onAction}>
+      <a href={withAttribution(webServiceGoogleLoginUrl)} onClick={onAction}>
         {icon ?? <GoogleIcon />}
         {label}
       </a>
